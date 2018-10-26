@@ -30,11 +30,21 @@
     "instrument": true
   },
   "author": "Haris Hajdarevic",
-  "license": "ISC",
+  "license": "MIT",
   "engineStrict": true,
   "repository": {
-    "url": "https://vlates@bitbucket.symetri.com/scm/bimeyenx/services-bim.git"
+    "url": "https://github.com/harishajdarevic/angular-nodejs-socketio-semantic"
   },
+  "keywords": [
+    "angular",
+    "angular2",
+    "socket",
+    "socketio",
+    "angular real time",
+    "angular progress bar",
+    "nodejs progress bar",
+    "nodejs real time"
+  ],
   "engines": {
     "node": ">= 8.9.1"
   },

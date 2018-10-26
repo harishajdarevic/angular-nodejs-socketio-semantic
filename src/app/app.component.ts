@@ -52,12 +52,12 @@ export class AppComponent {
     this.socketService.socket.on("#progress", (event: IWebSocket) => {
 
         if (event.barId) {
-            this.progress[event.barId].progress = event.progress;
+            this.progress[event.barId - 1].progress = event.progress;
 
-            // if error occur or cancel operation
-            if (!event.status) {
-                this.response[event.barId].status = event.status;
-                this.response[event.barId].message = event.message;
+            // socket push status and message change response
+            if (event.message) {
+                this.response[event.barId - 1].status = event.status;
+                this.response[event.barId - 1].message = event.message;
             }
         }
     });
@@ -74,8 +74,12 @@ export class AppComponent {
       console.log("starting operation: ", progressId);
       this.http.post(`${API_ROOT}operation/start`, { progressId: progressId }, httpOptions)
           .subscribe((response: IAPIResponse) => {
-            this.response[0].status = response.status;
-            this.response[0].message = response.message;
+            const progressId = response.progressId;
+            
+            if (progressId) {
+                this.response[progressId - 1].status = response.status;
+                this.response[progressId - 1].message = response.message;
+            }
           });
           
   }
@@ -83,7 +87,7 @@ export class AppComponent {
     /**
      * Start long running operation and cancel when user press cancel button.
      */
-    public cancel() {
+    public cancelOperation() {
         this.socketService.socket.emit("cancel", true);
     }
 

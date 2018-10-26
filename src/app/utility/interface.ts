@@ -1,10 +1,11 @@
 export interface IAPIResponse {
     status?: boolean;
     message?: string;
+    progressId?: number;
 }
 
 export interface IWebSocket {
-    barId: string;
+    barId: number;
     status: boolean;
     progress?: number;
     message?: string;
