@@ -9,9 +9,9 @@ export class OperationRoutes {
 
         this.router.post("/start", async (request: Request, response: Response) => {
             try {
-                console.log("request.body: ", request);
+
                 const progressId = request.body.progressId;
-                console.log("progressId: ", progressId);
+
                 if (!progressId) {
                     return response.json({
                         status: false,
@@ -26,6 +26,7 @@ export class OperationRoutes {
                         Operation.longOperationStartAndFinish();
 
                         return response.json({
+                            progressId: progressId,
                             status: true,
                             message: "Operation started and it will finish and user is not able to cancel it.",
                         });
@@ -36,6 +37,7 @@ export class OperationRoutes {
                         Operation.longOperationStartAndStopInTheMiddle();
 
                         return response.json({
+                            progressId: progressId,
                             status: true,
                             message: "Operation started and this progress bar will stop on 50%. We are simulating error exception.",
                         });
@@ -46,6 +48,7 @@ export class OperationRoutes {
                         Operation.longOperationStartAndStopOnUserCancel();
 
                         return response.json({
+                            progressId: progressId,
                             status: true,
                             message: "Response returned immediatelly from a server as a info that operation start in a background. " +
                             "This operation will thrown an error on 50%.",
