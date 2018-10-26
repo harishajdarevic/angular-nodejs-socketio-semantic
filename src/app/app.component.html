@@ -1,0 +1,107 @@
+<div class="ui grid">
+    <div class="centered row">
+        <div class="eight wide column">
+            <header-component [isConnected]="socketService.isConnected() | async"></header-component>
+        </div>
+    </div>
+
+    <div class="ui divider"></div>
+
+    <div class="centered row">
+        <div class="eight wide column">
+            <h3>No handling exceptions and not possibility to cancel</h3>
+            <h5>
+                Description: This operation will finish succesfully and it is not possible to cancel this. When you press start
+                API will return response immediatelly and operation will continue to happening in a background as async and user
+                will have status presented on progress bar.
+            </h5>
+        </div>
+    </div>
+
+    <div class="centered row">
+        <div class="eight wide column">
+            <sui-progress class="active" [value]="progress[0].progress">Progress bar</sui-progress>
+        </div>
+    </div>
+
+    <div class="centered row">
+        <div class="four wide-column"> <button type="button" [disabled]="response[0].status" (click)="startOperation(1)">Start</button></div>
+    </div>
+    <div class="centered row">
+        <div class="four wide-column"> {{ response[0]?.message }}</div>
+    </div>
+
+    <div class="ui divider"></div>
+
+    <div class="centered row">
+        <div class="eight wide column">
+            <h3>Catch exception</h3>
+            <h5>
+                Simulation of catching exception that occurs on 50% in this example.
+            </h5>
+        </div>
+    </div>
+
+    <div class="centered row">
+        <div class="eight wide column">
+            <sui-progress class="active" [value]="progress[1].progress">Progress bar</sui-progress>
+        </div>
+    </div>
+
+    <div class="centered row">
+        <div class="four wide-column">
+            <button type="button" [disabled]="response[1].status" (click)="startOperation(2)">Start</button>
+        </div>
+    </div>
+    <div class="centered row">
+        <div class="ui negative message"
+             *ngIf="response[1]?.message?.length > 0"
+             [ngClass]="{
+             'negative': !response[1].status,
+             'success': response[1].status
+              }">
+            <div class="header">
+                {{ response[1]?.message }}
+            </div>
+          </div>
+    </div>
+
+    <div class="ui divider"></div>
+
+    <div class="centered row">
+        <div class="eight wide column">
+            <h3>Cancellation</h3>
+            <h5>
+                Be able to cancel long async operation at any time.
+            </h5>
+        </div>
+    </div>
+
+    <div class="centered row">
+        <div class="eight wide column">
+            <sui-progress class="active" [value]="progress[2].progress">Progress bar</sui-progress>
+        </div>
+    </div>
+
+    <div class="centered row">
+        <div class="four wide-column">
+            <button type="button" [disabled]="response[2]?.status" (click)="startOperation(3)">Start</button>
+            <button type="button" [disabled]="!response[2]?.status" (click)="cancel()">Cancel</button>
+        </div>
+    </div>
+    <div class="centered row">
+        <div class="ui negative message"
+             *ngIf="response[2]?.message?.length > 0"
+             [ngClass]="{
+             'negative': !response[2]?.status,
+             'success': response[2]?.status
+              }">
+            <div class="header">
+                {{ response[2]?.message }}
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

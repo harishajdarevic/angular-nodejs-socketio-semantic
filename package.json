@@ -1,0 +1,88 @@
+{
+  "name": "angular-node-socketio-semantic-progress-bar",
+  "version": "1.0.0",
+  "description": "Progress bar in Angular application pushed from nodejs via socketio and styled using semantic",
+  "main": "server/app.ts",
+  "scripts": {
+    "[A + N] Start angular & server": "concurrently --kill-others --kill-others-on-fail \"npm run '[N] start:server'\" \"ng serve --port 5678 \"",
+    "[A] ng": "ng",
+    "[A] start": "ng serve --port 8765",
+    "[A] build": "ng build",
+    "[A] test": "ng test",
+    "[A] lint": "ng lint --fix",
+    "[A] e2e": "ng e2e",
+    "[N] tsc & lint": "tslint './server/**/*.ts' --fix && tsc && echo \"Server compiled\"",
+    "[N] start:server": "tsc && nodemon"
+  },
+  "nyc": {
+    "extension": [
+      ".ts"
+    ],
+    "include": [
+      "server/**/*.ts"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "check-coverage": "--lines 50 --per-file",
+    "all": false,
+    "sourceMap": false,
+    "instrument": true
+  },
+  "author": "Haris Hajdarevic",
+  "license": "ISC",
+  "engineStrict": true,
+  "repository": {
+    "url": "https://vlates@bitbucket.symetri.com/scm/bimeyenx/services-bim.git"
+  },
+  "engines": {
+    "node": ">= 8.9.1"
+  },
+  "dependencies": {
+    "@angular/animations": "5.2.11",
+    "@angular/common": "5.2.11",
+    "@angular/compiler": "5.2.11",
+    "@angular/core": "5.2.11",
+    "@angular/forms": "5.2.11",
+    "@angular/http": "5.2.11",
+    "@angular/platform-browser": "5.2.11",
+    "@angular/platform-browser-dynamic": "5.2.11",
+    "@angular/router": "5.2.11",
+    "concurrently": "4.0.1",
+    "core-js": "2.4.1",
+    "cors": "2.8.4",
+    "express": "4.16.2",
+    "ng2-semantic-ui": "0.9.7",
+    "rxjs": "5.5.2",
+    "socket.io": "1.7.4",
+    "socket.io-client": "1.7.2",
+    "zone.js": "0.8.14"
+  },
+  "devDependencies": {
+    "@angular/cli": "~1.5.0",
+    "@angular/compiler-cli": "5.2.11",
+    "@angular/language-service": "5.2.11",
+    "@types/jasmine": "2.5.53",
+    "@types/jasminewd2": "2.0.2",
+    "@types/node": "6.0.60",
+    "@types/socket.io-client": "1.4.31",
+    "codelyzer": "3.1.1",
+    "jasmine-core": "2.6.2",
+    "jasmine-spec-reporter": "4.1.0",
+    "karma": "1.7.0",
+    "karma-chrome-launcher": "2.1.1",
+    "karma-cli": "1.0.1",
+    "karma-coverage-istanbul-reporter": "1.2.1",
+    "karma-jasmine": "1.1.0",
+    "karma-jasmine-html-reporter": "0.2.2",
+    "protractor": "5.1.2",
+    "@types/express": "4.11.0",
+    "@types/socket.io": "1.4.31",
+    "@types/cors": "0.0.32",
+    "nodemon": "1.14.7",
+    "ts-node": "4.1.0",
+    "tslint": "5.8.0",
+    "typescript": "2.6.2"
+  },
+  "false": {}
+}

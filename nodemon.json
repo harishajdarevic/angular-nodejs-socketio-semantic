@@ -1,0 +1,11 @@
+{
+  "watch": ["server/**/*.ts"],
+  "ignore": [
+    ".git",
+    "node_modules/**/node_modules",
+    "server/**/*.spec.ts"
+  ],
+  "verbose": false,
+  "ext": "ts",
+  "exec": "ts-node ./server/app.ts"
+}

@@ -1,0 +1,20 @@
+# Editor files
+.idea/
+
+# docs, coverage
+/docs
+/coverage
+
+# Npm files
+npm-debug.log
+npm-debug.*
+/node_modules
+node_modules
+
+# Typings
+/typings
+
+# Compiled server files
+/server/**/*.js
+*.js.map
+dist
