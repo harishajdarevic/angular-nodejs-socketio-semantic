@@ -17,7 +17,13 @@ User is able to start async operation, cancel it and also we are going to simula
 
 Soon....
 
-# Installation
+## Prerequisites
+
+Node.js and npm are essentials.
+
+I recommend [nvm](https://github.com/creationix/nvm) for managing multiple versions of node and npm.
+
+## Installation
 
 After project cloning go inside root directory and run:
 
