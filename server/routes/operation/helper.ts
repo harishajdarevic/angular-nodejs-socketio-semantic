@@ -22,7 +22,7 @@ export class Operation {
      */
 
     public static async longOperationStartAndFinish() {
-        const iterations = 100;
+        const iterations = 101;
 
         for (let i = 0; i < iterations; i++) {
 
@@ -32,7 +32,15 @@ export class Operation {
                 progress: i,
             });
             
-            await this.timeOut(2000);
+            if(i === 100) {
+                io.sockets.emit("#progress", {
+                    barId: 1,
+                    status: true,
+                    message: "Operation finished!",
+                });
+            }
+            
+            await this.timeOut(100);
         }
     }
 
@@ -42,7 +50,7 @@ export class Operation {
      * @returns {Promise<void>}
      */
     public static async longOperationStartAndStopInTheMiddle() {
-        const iterations = 100;
+        const iterations = 101;
 
         for (let i = 0; i <= iterations; i++) {
 
@@ -62,7 +70,7 @@ export class Operation {
                 break;
             }
 
-            await this.timeOut(300);
+            await this.timeOut(100);
         }
     }
 
@@ -72,7 +80,7 @@ export class Operation {
      */
     public static async longOperationStartAndStopOnUserCancel() {
 
-        const iterations = 100;
+        const iterations = 101;
 
         for (let i = 0; i < iterations; i++) {
 
@@ -94,7 +102,7 @@ export class Operation {
                 break;
             }
 
-            await this.timeOut(500);
+            await this.timeOut(100);
         }
     }
     public static async cancelTransaction() {

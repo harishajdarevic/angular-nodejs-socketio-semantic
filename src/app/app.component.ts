@@ -54,8 +54,8 @@ export class AppComponent {
         if (event.barId) {
             this.progress[event.barId - 1].progress = event.progress;
 
-            // if error occur or cancel operation
-            if (!event.status) {
+            // socket push status and message change response
+            if (event.message) {
                 this.response[event.barId - 1].status = event.status;
                 this.response[event.barId - 1].message = event.message;
             }
@@ -87,7 +87,7 @@ export class AppComponent {
     /**
      * Start long running operation and cancel when user press cancel button.
      */
-    public cancel() {
+    public cancelOperation() {
         this.socketService.socket.emit("cancel", true);
     }
 
