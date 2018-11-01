@@ -31,9 +31,8 @@
             </div>
         </div>
 
-        <div class="centered row">
+        <div class="centered row" *ngIf="response[0]?.message?.length > 0">
             <div class="ui negative message"
-                 *ngIf="response[0]?.message?.length > 0"
                  [ngClass]="{
                  'negative': !response[0].status,
                  'success': response[0].status
@@ -74,9 +73,8 @@
                 <button class="ui green button" type="button" [disabled]="response[1].status" (click)="startOperation(2)">Start</button>
             </div>
         </div>
-        <div class="centered row">
+        <div class="centered row" *ngIf="response[1]?.message?.length > 0">
             <div class="ui negative message"
-                 *ngIf="response[1]?.message?.length > 0"
                  [ngClass]="{
                  'negative': !response[1].status,
                  'success': response[1].status
@@ -116,9 +114,8 @@
                 <button class="ui red button" type="button" [disabled]="!response[2]?.status" (click)="cancelOperation()">Cancel</button>
             </div>
         </div>
-        <div class="centered row">
+        <div class="centered row" *ngIf="response[2]?.message?.length > 0">
             <div class="ui negative message"
-                 *ngIf="response[2]?.message?.length > 0"
                  [ngClass]="{
                  'negative': !response[2]?.status,
                  'success': response[2]?.status
