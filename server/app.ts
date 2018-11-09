@@ -8,7 +8,7 @@ import { apiRoutes } from "./routes/routes";
 import * as path from 'path';
 
 const app: express.Application = generateApp();
-const server: Server = app.listen(8765);
+const server: Server = app.listen(process.env.PORT || 8765);
 
 const io = socketIo(server);
 
