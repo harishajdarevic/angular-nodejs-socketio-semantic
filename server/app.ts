@@ -22,8 +22,6 @@ app.get('/*', function(req,res) {
 
 apiRoutes(app).catch((error) => console.log(error));
 
-
-
 io.on("connection", (socket) => {
     socket.on("cancel", (event) => {
         if (event) {

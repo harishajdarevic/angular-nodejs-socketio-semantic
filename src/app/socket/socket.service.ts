@@ -9,7 +9,7 @@ export class SocketService {
     public socket: SocketIOClient.Socket;
 
     constructor() {
-        this.socket = io.connect(`http://localhost:${process.env.PORT || 8765}`, {
+        this.socket = io.connect(window.location.hostname, {
             transports: ["websocket"],
         });
     }
