@@ -15,7 +15,6 @@ User is able to start async operation, cancel it and also we are going to simula
 
 # Live demo
 
-
 [Demo](https://angular-nodejs-realtime-app.herokuapp.com/ "Angular - NodeJS - Realtime application")
 
 ## Prerequisites
@@ -38,6 +37,14 @@ After installation of all dependencies finish
 
 ```bash
 npm run "[A + N] Start angular & server"
+```
+
+Above command will start nodejs and angular client. 
+
+So you can access to demo page at:
+
+```bash
+http://localhost:5678/
 ```
 
 ## Licence
