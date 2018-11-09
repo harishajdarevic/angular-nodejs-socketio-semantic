@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  serverUrl: window.location.hostname,
+  serverUrl: "http://angular-nodejs-realtime-app.herokuapp.com",
 };
