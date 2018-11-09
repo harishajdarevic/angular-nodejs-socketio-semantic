@@ -72,7 +72,8 @@
     "socket.io": "1.7.4",
     "socket.io-client": "1.7.2",
     "zone.js": "0.8.14",
-    "typescript": "2.6.2"
+    "typescript": "2.6.2",
+    "ts-node": "4.1.0"
   },
   "devDependencies": {
     "@angular/language-service": "5.2.11",
@@ -95,7 +96,6 @@
     "karma-jasmine-html-reporter": "0.2.2",
     "nodemon": "1.14.7",
     "protractor": "5.1.2",
-    "ts-node": "4.1.0",
     "tslint": "5.8.0"
   },
   "false": {}
