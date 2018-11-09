@@ -16,7 +16,7 @@ User is able to start async operation, cancel it and also we are going to simula
 # Live demo
 
 
-[Demo](https://angular-nodejs-realtime-app.herokuapp.com/)
+[Demo](https://angular-nodejs-realtime-app.herokuapp.com/){:target="_blank"}
 
 ## Prerequisites
 
