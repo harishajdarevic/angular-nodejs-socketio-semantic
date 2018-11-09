@@ -75,7 +75,7 @@ export class AppComponent {
       console.log(`starting operation: ${progressId},
                    serverUrl: ${environment.serverUrl},
                    API_ROOT: ${API_ROOT}`.trim());
-      this.http.post(`${environment.serverUrl}server/operation/start`, { progressId: progressId }, httpOptions)
+      this.http.post(`${environment.serverUrl}/server/operation/start`, { progressId: progressId }, httpOptions)
           .subscribe((response: IAPIResponse) => {
             const progressId = response.progressId;
             
