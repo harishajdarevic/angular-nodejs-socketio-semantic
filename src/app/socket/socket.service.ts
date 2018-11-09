@@ -10,10 +10,8 @@ export class SocketService {
     public socket: SocketIOClient.Socket;
 
     constructor() {
-        console.log("window.location.hostname: ", window.location.hostname);
-        console.log("environment.socketUrl ", environment.socketUrl);
         
-        this.socket = io.connect(environment.socketUrl, {
+        this.socket = io.connect(environment.serverUrl, {
             transports: ["websocket"],
         });
     }

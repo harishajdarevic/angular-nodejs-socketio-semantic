@@ -7,6 +7,7 @@ import { SocketService } from "./socket/socket.service";
 import { API_ROOT } from "./utility/config";
 import { httpOptions } from "./utility/constant";
 import {IAPIResponse, IWebSocket} from "./utility/interface";
+import { environment } from '../environments/environment';
 
 @Component({
   selector: "app-root",
@@ -71,8 +72,10 @@ export class AppComponent {
    * - progressId: 3 = third progress bar
    */
   public startOperation(progressId: number) {
-      console.log("starting operation: ", progressId);
-      this.http.post(`${API_ROOT}operation/start`, { progressId: progressId }, httpOptions)
+      console.log(`starting operation: ${progressId},
+                   serverUrl: ${environment.serverUrl},
+                   API_ROOT: ${API_ROOT}`.trim());
+      this.http.post(`${environment.serverUrl}server/operation/start`, { progressId: progressId }, httpOptions)
           .subscribe((response: IAPIResponse) => {
             const progressId = response.progressId;
             
