@@ -1,6 +1,6 @@
+import { json, urlencoded } from "body-parser";
 import * as cors from "cors";
 import * as  express from "express";
-import { json, urlencoded } from 'body-parser';
 
 export function generateApp(): express.Application {
 

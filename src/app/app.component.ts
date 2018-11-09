@@ -46,7 +46,7 @@ export class AppComponent {
       },
   ];
 
-  constructor(private socketService: SocketService, private http: HttpClient) {
+  constructor(public socketService: SocketService, private http: HttpClient) {
 
     // socket listener
     this.socketService.socket.on("#progress", (event: IWebSocket) => {

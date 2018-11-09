@@ -31,15 +31,15 @@ export class Operation {
                 status: true,
                 progress: i,
             });
-            
-            if(i === 100) {
+
+            if (i === 100) {
                 io.sockets.emit("#progress", {
                     barId: 1,
                     status: true,
                     message: "Operation finished!",
                 });
             }
-            
+
             await this.timeOut(100);
         }
     }
@@ -100,6 +100,14 @@ export class Operation {
                 });
 
                 break;
+            }
+
+            if (i === 100) {
+                io.sockets.emit("#progress", {
+                    barId: 3,
+                    status: false,
+                    message: "Operation finished!",
+                });
             }
 
             await this.timeOut(100);

@@ -26,7 +26,7 @@ export class OperationRoutes {
                         Operation.longOperationStartAndFinish();
 
                         return response.json({
-                            progressId: progressId,
+                            progressId,
                             status: true,
                             message: "Operation started.",
                         });
@@ -37,7 +37,7 @@ export class OperationRoutes {
                         Operation.longOperationStartAndStopInTheMiddle();
 
                         return response.json({
-                            progressId: progressId,
+                            progressId,
                             status: true,
                             message: "Operation started.",
                         });
@@ -48,7 +48,7 @@ export class OperationRoutes {
                         Operation.longOperationStartAndStopOnUserCancel();
 
                         return response.json({
-                            progressId: progressId,
+                            progressId,
                             status: true,
                             message: "Operation started.",
                         });
