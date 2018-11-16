@@ -9,13 +9,14 @@ On other hand user needs to be informed what is happening on server and here tha
 
 User is able to start async operation, cancel it and also we are going to simulate catching an exception and stopping operation. 
 
-# Screenshot
-
-![Screenshot of demo application](assets/images/screenshot.png?raw=true "Title")
 
 # Live demo
 
 [Demo](https://angular-nodejs-realtime-app.herokuapp.com/ "Angular - NodeJS - Realtime application")
+
+# Screenshot
+
+![Screenshot of demo application](assets/images/screenshot.png?raw=true "Title")
 
 ## Prerequisites
 
