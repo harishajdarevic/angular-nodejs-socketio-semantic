@@ -1,4 +1,4 @@
-import * as socketClient from "socket.io-client";
+import { Response} from "express";
 import { io } from "../../app";
 
 export class Operation {
@@ -113,6 +113,26 @@ export class Operation {
             await this.timeOut(100);
         }
     }
+
+    /**
+     * Server response
+     */
+    public static response(response: Response, status: boolean, message: string, progressId: number = 0) {
+
+        let serverResponse = {
+            status,
+            message,
+        };
+
+        if (progressId) {
+            serverResponse = Object.assign({}, serverResponse, {
+               progressId,
+           });
+        }
+
+        return response.json(serverResponse);
+    }
+
     public static async cancelTransaction() {
         this.canceled = true;
     }

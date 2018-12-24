@@ -13,10 +13,9 @@ export class OperationRoutes {
                 const progressId = request.body.progressId;
 
                 if (!progressId) {
-                    return response.json({
-                        status: false,
-                        message: "You didn't send progressId. Please send (1, 2 or 3).",
-                    });
+
+                    return Operation.response(response, false, "You didn't send progressId. Please send (1, 2 or 3).");
+
                 }
 
                 switch (progressId) {
@@ -25,40 +24,42 @@ export class OperationRoutes {
                     case 1: {
                         Operation.longOperationStartAndFinish();
 
-                        return response.json({
-                            progressId,
-                            status: true,
-                            message: "Operation started.",
-                        });
+                        return Operation.response(
+                            response,
+                            true,
+                            "Operation started.",
+                            progressId);
 
                     }
                     // Progress bar 2
                     case 2: {
                         Operation.longOperationStartAndStopInTheMiddle();
 
-                        return response.json({
-                            progressId,
-                            status: true,
-                            message: "Operation started.",
-                        });
+                        return Operation.response(
+                            response,
+                            true,
+                            "Operation started.",
+                            progressId);
 
                     }
                     // Progress bar 3
                     case 3: {
                         Operation.longOperationStartAndStopOnUserCancel();
 
-                        return response.json({
-                            progressId,
-                            status: true,
-                            message: "Operation started.",
-                        });
+                        return Operation.response(
+                            response,
+                            true,
+                            "Operation started.",
+                            progressId);
 
                     }
                     default: {
-                        return response.json({
-                            status: true,
-                            message: "You sent progressId: " + progressId + " which is not valid. Please send (1, 2 or 3 ).",
-                        });
+
+                        return Operation.response(
+                            response,
+                            true,
+                            "You sent progressId: " + progressId + " which is not valid. Please send (1, 2 or 3 ).",
+                            progressId);
                     }
                 }
 
