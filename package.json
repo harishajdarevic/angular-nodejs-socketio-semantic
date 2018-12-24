@@ -13,7 +13,7 @@
     "[A] e2e": "ng e2e",
     "[N] tsc & lint": "tslint './server/**/*.ts' --fix && tsc && echo \"Server compiled\"",
     "[N] start:server": "tsc && nodemon",
-    "postinstall": "ng build --aot -prod",
+    "postinstall": "ng build --aot --prod",
     "start": "ts-node server/app.ts"
   },
   "nyc": {
